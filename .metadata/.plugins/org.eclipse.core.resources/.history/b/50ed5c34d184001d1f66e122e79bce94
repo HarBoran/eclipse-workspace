@@ -1,0 +1,6 @@
+package com.code.springdemo.entity.copy;
+
+@
+public class Customer {
+
+}

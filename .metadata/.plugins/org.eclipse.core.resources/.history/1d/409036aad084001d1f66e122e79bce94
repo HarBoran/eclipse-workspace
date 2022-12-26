@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>List Customers</title>
+</head>
+
+
+<body>
+	List Customers are coming soon...
+	http://localhost:8080/web-customer-tracker/WEB-INF/view/list-customers.jsp
+	http://localhost:8080/web-customer-tracker/customer/list
+</body>
+
+</html>
