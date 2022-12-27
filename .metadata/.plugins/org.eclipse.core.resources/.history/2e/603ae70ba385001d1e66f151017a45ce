@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html>
+
+<html>
+<head>
+	<link type= "text/css"
+      rel="stylesheet"
+      href="${pageContext.request.contextPath}/resources/css/style.css"/>
+	
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<h2>Customer Management</h2>
+		</div>
+	</div>
+	
+	<form:form action="saveCustomer" modelAttribute="customer" method="GET"> 
+	   <div id="container">   
+			<div id="content">
+<form:input path="memberid" />
+<%-- 				Save Customer<br>
+					First_name : <form:input path= "firstName"/><br>
+								<form:input path="memberid" />
+					Last name : <form:input path= "lastName"/><br>
+					email : <form:input path= "email"/><br>
+					<form:button  name="register">sss</form:button> --%>
+			</div>
+		</div>
+	</form:form>
+	<a href="list">Back To List</a> 
+</body>
+
+</html>

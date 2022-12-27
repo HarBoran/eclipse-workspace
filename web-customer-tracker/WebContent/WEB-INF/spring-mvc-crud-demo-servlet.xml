@@ -16,9 +16,9 @@
 
 
 	<context:component-scan base-package="com.code.springdemo" />
-
+   <!--ㅡmvc패턴에서 사용하는 어노테이션을 사용하게끔 해주는 부분  -->
 	<mvc:annotation-driven/>
-
+   <!--RequestMapping 으로 /파일이름 이렇게 해도 되게끔 해주는 부분  -->
 	
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -33,7 +33,7 @@
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/web_customer_tracker?useSSL=false&amp;serverTimezone=UTC" />
         <property name="user" value="springstudent" />
         <property name="password" value="springstudent" /> 
-
+        <!--  database에 datasource를 설정하고 date pooling을 해주는 코드 -->
   
         <property name="minPoolSize" value="5" />
         <property name="maxPoolSize" value="20" />
@@ -49,7 +49,7 @@
 		   <props>
 		      <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 		      <!-- 여기가 Hibernate를 출력하는 부분 -->
-		     <!--  <prop key="hibernate.show_sql">true</prop> -->
+			  <!-- <prop key="hibernate.show_sql">true</prop> -->
 		   </props>
 		</property>
    </bean>	  
@@ -59,10 +59,12 @@
             class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-    
+    <!-- annotation 나올떄마다 기능에 집중해서 이해하는편이 좋음 -->
+    <!--@Transactional : transactional annotation configuration 실행을 할 수 있는 기능을 주는 어노테이션 -->    
     <!-- @Transactional : transactional annotation cofiguration -->
-  	<tx:annotation-driven transaction-manager="myTransactionManager" />
-
+  	<tx:annotation-driven transaction-manager="myTransactionManager" />  	
+	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
+     <!-- css 설정하는 파일 메핑해 줄 수 있게 설정하는 작업   resources 선언  **는 하위폴더 모두 접근 가능  -->
 </beans>
 
 

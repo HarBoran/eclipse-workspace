@@ -1,43 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!-- 부트스트랩 -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
 <!DOCTYPE html>
 <html>
-
 <head>
-	<title>List Customers</title>
+   <title>List Customers</title>
+   <!--  css파일 적용-->
+	   <link type= "text/css"
+      rel="stylesheet"
+      href="${pageContext.request.contextPath}/resources/css/style.css"/>
 </head>
-
-
 <body>
-	List Customers are coming soon... <br>
-	
-	<!-- list-customer.jsp에 customers의 내용이 나오도록 jstl core를 활용하여 코딩하세요. -->
-	<div class="container">
-	<div class="container p-3 my-3 bg-success text-white">CRM - Customer Relationship Manager</div>
-		<table class="table table-striped">
-		<tr class = "table-success">
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Email</th>	
-		</tr>
-		
-			<c:forEach var = "tempCustomer" items ="${customers}">
-				<tr>
-					<td>${tempCustomer.firstName}</td>
-					<td>${tempCustomer.lastName}</td>
-					<td>${tempCustomer.email}</td>
-				</tr>
-			</c:forEach>
-		</table>
-	</div>
-
+   <div id="wrapper">
+      <div id="header">
+         <h2>Customer Management</h2>
+      </div>
+   </div>
+  
+      
+   <div id="container">
+   
+      <div id="content">
+      
+         <!-- add our html table here -->
+         <input type = "button" value = "Add Customer" class ="add-button" 
+         onclick="window.location.href='showFormForAdd'; return false;"/>    
+         <table>
+            <tr>
+               <th>First Name</th>
+               <th>Last Name</th>
+               <th>Email</th>
+            </tr>
+            
+            <!-- loop over and print our customers -->
+            <c:forEach var="tempCustomer" items="${customers}">
+            
+               <tr>
+                  <td> ${tempCustomer.firstName} </td>
+                  <td> ${tempCustomer.lastName} </td>
+                  <td> ${tempCustomer.email} </td>
+               </tr>
+            
+            </c:forEach>
+                  
+         </table>
+            
+      </div>
+   
+   </div>
+   
 </body>
-
 </html>

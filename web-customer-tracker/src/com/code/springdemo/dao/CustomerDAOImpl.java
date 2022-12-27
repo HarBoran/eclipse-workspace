@@ -21,20 +21,27 @@ public class CustomerDAOImpl implements CustomerDAO {
 	private SessionFactory sessionFactory;
 	
 	@Override
-	@Transactional 
+	//@Transactional 
+	//주석처리하면 실행은 하지 않음 
 	//트렌잭션이란?	
 	//데이터베이스의 상태를 변화시키기 위해 수행하는 작업 단위
 	public List<Customer> getCustomers() {
 		
-		//현제 hibernate세션을 가져옴
-		
+		//현제 hibernate세션을 가져옴		
 		Session currentSession = sessionFactory.getCurrentSession();		
-	
+									//entity 클래스 네임
 		Query<Customer> theQuery = currentSession.createQuery("from Customer", Customer.class);
 		
 		List<Customer> customers = theQuery.getResultList();	
 		
 		return customers;
+	}
+
+	@Override
+	public void saveCustomer(Customer theCustomer) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.save(theCustomer);	
+		
 	}
 
 }

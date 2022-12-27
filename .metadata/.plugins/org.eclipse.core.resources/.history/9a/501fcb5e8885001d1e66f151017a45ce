@@ -1,0 +1,18 @@
+package com.code.springdemo.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.code.springdemo.entity.Customer;
+
+@Service
+public class CustomerServiceImpl implements CustomerService {
+
+	@Override
+	public List<Customer> getCustomers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

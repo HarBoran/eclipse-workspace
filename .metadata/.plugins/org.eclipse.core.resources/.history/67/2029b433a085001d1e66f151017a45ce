@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
+
+<html>
+<head>
+	<link type= "text/css"
+      rel="stylesheet"
+      href="${pageContext.request.contextPath}/resources/css/style.css"/>
+	
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<h2>Customer Management</h2>
+		</div>
+	</div>
+	
+	<form:form action="saveCustomer" modelAttribute="customer" method="GET"> 
+	   <div id="container">   
+			<div id="content">
+
+				Save Customer<br>
+					First_name : <input type ="text" name = "firstName"><br>
+					Last name : <input type ="text" name = "lastName"><br>
+					email : <input type ="text" name = "email"><br>
+					<input type = "submit" value = "save"/><br>
+				
+				<a href="list">Back To List</a> 
+			</div>
+		</div>
+	</form:form>
+</body>
+
+</html>

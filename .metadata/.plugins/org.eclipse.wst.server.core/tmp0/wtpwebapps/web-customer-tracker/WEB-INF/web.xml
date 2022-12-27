@@ -5,9 +5,9 @@
   <absolute-ordering />
 
   <welcome-file-list>
-  	<welcome-file>list-customers.jsp</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
+  	<welcome-file>index.jsp</welcome-file>
     <welcome-file>index.html</welcome-file>
+    <welcome-file>com.code.springdemo.controller.CustomerController</welcome-file>
   </welcome-file-list>
 
   <servlet>
