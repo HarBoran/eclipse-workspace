@@ -31,7 +31,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 		Session currentSession = sessionFactory.getCurrentSession();		
 									//entity 클래스 네임
 		String hql = "from Customer";
-		//String hql = "from Customer order by lastName"";
+		//String hql = "from Customer order by lastName";
 		//String hql = "from Customer where lastName = 'Writer'";
 		Query<Customer> theQuery = currentSession.createQuery(hql, Customer.class);
 		List<Customer> customers = theQuery.getResultList();		
