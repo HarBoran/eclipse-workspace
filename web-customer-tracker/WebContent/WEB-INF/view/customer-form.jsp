@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,9 +21,10 @@
    </div>
    <div id="container">
       <h3>Save Customer</h3>
-   
+      <!-- modelAttribute  = class -->   
       <form:form action="saveCustomer" modelAttribute="customer" method="GET"> 
-      
+      <form:hidden path="id"/>
+      <form:input type ="hidden" path= "id" />
          <table>
             <tbody>
                <tr>
@@ -40,7 +42,13 @@
                </tr>
                <tr>
                   <td><label></label></td>
-                  <td><input type="submit" value="Save" class="save" /></td>
+
+                  <c:if test="${customer.id eq 0}">
+                  		<td><input type="submit" value="Save" class ="save"/></td>
+                  </c:if>
+                   <c:if test="${customer.id ne 0}">
+                  		<td><input type="submit" value="Upate"/></td>
+                  </c:if>
                </tr>
             </tbody>
          </table>

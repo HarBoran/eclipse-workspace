@@ -2,6 +2,7 @@ package com.code.springdemo.controller;
 
 import java.util.List;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.code.springdemo.dao.CustomerDAO;
 import com.code.springdemo.entity.Customer;
@@ -36,10 +38,7 @@ public class CustomerController {
 		//customers라는 이름으로 customerDAO의 return값을 받아오도록 코딩하세요.
 		//List<Customer> theCustomers = customerDAO.getCustomers();	
 		List<Customer> theCustomers = customerService.getCustomers();	
-		
-
-		theModel.addAttribute("customers",theCustomers);
-		
+		theModel.addAttribute("customers",theCustomers);		
 		return "list-customers";
 	}	
 	
@@ -52,12 +51,24 @@ public class CustomerController {
 	
 	
 	@GetMapping("/saveCustomer")
-	public String addCustomer(/* @ModelAttribute("customer") */ Customer theCustomer) {
+	public String addCustomer(@ModelAttribute("customer") Customer theCustomer,Model theModel) {
+		//System.out.println("id = "+ theCustomer.getId());
 		customerService.saveCustomer(theCustomer);
-		
-		//데이터 베이스를 들려서 오지않음
-		//return "list-customers";
 		return "redirect:/customer/list";
-	}	
+	}
+	
+	@GetMapping("/showFormForUpdate")
+	public String showFormForUpdate(@RequestParam("customerId") int theId, Model theModel) {
+		Customer theCustomer = customerService.getCustomer(theId);
+		theModel.addAttribute("customer", theCustomer);
+		return "customer-form";
+	}
+	
+	@GetMapping("/delete")
+	public String showFormForDelete(@RequestParam("customerId") int theId, Model theModel) {
+		customerService.deleteCustomer(theId);
+		return "redirect:/customer/list";
+	}
+	
 
 }
