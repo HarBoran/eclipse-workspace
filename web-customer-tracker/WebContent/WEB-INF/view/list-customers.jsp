@@ -1,21 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
    <title>List Customers</title>
    <!--  css파일 적용-->
-	   <link type= "text/css"
-      rel="stylesheet"
-      href="${pageContext.request.contextPath}/resources/css/style.css"/>
+	   <link type="text/css"
+       		rel="stylesheet"
+       		href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
+      <link type= "text/css"
+      		rel="stylesheet"
+      		href="${pageContext.request.contextPath}/resources/css/style.css"/>
+        
+      <link type= "text/css"
+			rel="stylesheet"
+			href="${pageContext.request.contextPath}/resources/css/snow.css"/>
+      <script src ="${pageContext.request.contextPath}/resources/js/main.js"></script>
+      <script>
+      $(document).ready(function(){
+    	 $("").arlet({
+
+    	 });	 
+      });
+      </script>
 </head>
-<body>
+<body style = "background-color: white;">
+
+<script src='https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js'></script>
+<script>
+    var sf = new Snowflakes({
+        count: 75, // 갯수
+        minOpacity: 0.2, // 최소 투명도 0: 투명 | 1: 불투명
+        maxOpacity: 0.6 // 최대 투명도
+    });
+</script>
+
    <div id="wrapper">
       <div id="header">
          <h2>Customer Management</h2>
       </div>
    </div>
-  
+   
+  <form:form action = "search" method = "GET">
+	  Search customer: <input name = "theSearchName"/> <button class = "add-button">Search</button>
+  </form:form>
       
    <div id="container">
    
