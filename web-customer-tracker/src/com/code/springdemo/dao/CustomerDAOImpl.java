@@ -21,7 +21,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Override
 	// @Transactional
-	// 주석처리하면 실행은 하지 않음
+	// 주석처리하면 실행은 하지 않음	
 	// 트렌잭션이란?
 	// 데이터베이스의 상태를 변화시키기 위해 수행하는 작업 단위
 	public List<Customer> getCustomers() {
@@ -72,7 +72,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 		Query<Customer> theQuery =null;
 
 		if (tempSearchParam != null && tempSearchParam.length() > 0) {
-			hql = "from Customer where firstName like :name or lastName like :name";
+			hql = "from Customer where lower(firstName) like :name or lower(lastName) like :name";
 			theQuery = currentSession.createQuery(hql, Customer.class);
 			theQuery.setParameter("name", "%" + tempSearchParam + "%");
 

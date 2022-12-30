@@ -26,7 +26,7 @@
       });
       </script>
 </head>
-<body style = "background-color: white;">
+<body>
 
 <script src='https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js'></script>
 <script>
