@@ -52,7 +52,6 @@ public class CustomerController {
 	
 	@GetMapping("/saveCustomer")
 	public String addCustomer(/* @ModelAttribute("customer") */ Customer theCustomer,Model theModel) {
-		//System.out.println("id = "+ theCustomer.getId());
 		customerService.saveCustomer(theCustomer);
 		return "redirect:/customer/list";
 	}

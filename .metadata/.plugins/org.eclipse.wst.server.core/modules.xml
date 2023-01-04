@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <modules>
+  <module moduleId="org.eclipse.jst.jee.server:spring-security-demo" serverId="apache-tomcat-9.0.62 at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:web-customer-tracker" serverId="apache-tomcat-9.0.62 at localhost"/>
   <module moduleId="org.eclipse.jst.j2ee.server:mywebapp" serverId="apache-tomcat-9.0.62 at localhost"/>
 </modules>
