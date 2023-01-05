@@ -63,8 +63,8 @@
     <!--@Transactional : transactional annotation configuration 실행을 할 수 있는 기능을 주는 어노테이션 -->    
     <!-- @Transactional : transactional annotation cofiguration -->
   	<tx:annotation-driven transaction-manager="myTransactionManager" />  	
+  	 <!-- css 설정하는 파일 메핑해 줄 수 있게 설정하는 작업   resources 선언  **는 하위폴더 모두 접근 가능  -->
 	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
-     <!-- css 설정하는 파일 메핑해 줄 수 있게 설정하는 작업   resources 선언  **는 하위폴더 모두 접근 가능  -->
 </beans>
 
 
