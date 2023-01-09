@@ -77,6 +77,8 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\a\eclip\thymeleaf"/>
+			<item value="C:\Users\a\eclip\mybootapp"/>
 			<item value="C:\Users\a\Documents\카카오톡 받은 파일\startfile"/>
 		</list>
 		<list key="projectNameTemplate">
