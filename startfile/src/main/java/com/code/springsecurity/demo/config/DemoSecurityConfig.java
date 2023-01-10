@@ -8,8 +8,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.User.UserBuilder;
 
 @Configuration
 @EnableWebSecurity //스프링 시큐리티 필터가 스프링 필터체인에 등록, 웹보안을 활성화함
@@ -42,21 +40,29 @@ public class DemoSecurityConfig  extends WebSecurityConfigurerAdapter{
 	
 	@Override
    protected void configure(HttpSecurity http) throws Exception {
-       http.authorizeRequests() //권환이 있는 요청
+       http.authorizeRequests() //권환이 있는 요청 // 요청에 대한 권한 지정. Security 처리에 HttpServletRequest를 이용한다는 것을 의미한다.
            		.antMatchers("/css/**").permitAll() //css 리소스 폴더에 접근 가능하게 만듬
            											//한줄 위에 있어야 로그인 전에 전적용할수 있음
-           		//.anyRequest().authenticated()	 //모든사람이 접근했을때
+           											//antMatchers() : 특정 경로를 지정합니다. 보통 뒤에 다른 메서드가 붙습니다.
+           		//.anyRequest().authenticated()	 //모든사람이 접근했을때, 어떤 요청에도 보안을 받도록 인가정책 설정.
+           										// 로그인 하지 않고 모두 권한을 가짐.
+           		//anyRequest() : 설정한 경로 외에 모든 경로를 뜻합니다.
+           		//authenticated() : 인증된 사용자만이 접근할 수 있습니다.
+           		.antMatchers("/test/**").permitAll() // 특정url 인증없이 접근가능
+           		// permitAll() : 어떤 사용자든지 접근할 수 있습니다.
            		.antMatchers("/").hasRole("EMPLOYEE")
+           		//hasRole() : 특정 ROLE을 가지고 있는 사람이 접근할 수 있습니다.
            		.antMatchers("/leaders/**").hasRole("MANAGER")
            		.antMatchers("/systems/**").hasRole("ADMIN")
            	.and()
-           		.formLogin()
+           		.formLogin() // form-login 인증 정책 //formLogin() : form 기반의 로그인을 할 수 있습니다.
            		.loginPage("/showMyLoginPage")
            		.loginProcessingUrl("/authenticateTheUser") //파라미터값을 받아옴/이곳으로 넘여야함
            		.permitAll();
        http.logout().logoutUrl("/customlogout").permitAll();
        //커트에러 페이지 생성하기
        http.exceptionHandling().accessDeniedPage("/access-denied");
+       //exceptionHandling() : 예외사항을 설정한다.
         
 	}
 }

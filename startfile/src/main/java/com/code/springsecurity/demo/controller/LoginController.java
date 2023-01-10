@@ -13,5 +13,10 @@ public class LoginController {
 		return "fancy-login";
 	}
 	
+	@GetMapping("/test")
+	public String test() {		
+		return "test";
+	}
+	
 
 }
