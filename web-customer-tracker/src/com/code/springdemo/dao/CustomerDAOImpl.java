@@ -57,11 +57,11 @@ public class CustomerDAOImpl implements CustomerDAO {
 		// Customer theCustomer = currentSession.get(Customer.class, theId);
 		currentSession.delete(theCustomer);
 		currentSession.remove(theCustomer);
-		/*
-		 * 복잡한 조건을 줄때 String hql = "DELETE FROM Customer WHERE id = :id"; Query query =
-		 * currentSession.createQuery(hql); query.setParameter("id", theId);
-		 * query.executeUpdate();
-		 */
+	
+		// 복잡한 조건을 줄때 String hql = "DELETE FROM Customer WHERE id = :id";
+		// Query query = currentSession.createQuery(hql); query.setParameter("id", theId);
+		// query.executeUpdate();
+		
 	}
 
 	@Override
